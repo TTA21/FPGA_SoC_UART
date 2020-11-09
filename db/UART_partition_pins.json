@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "o_TX",
+					"strict" : false
+				},
+				{
+					"name" : "o_LEDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "o_LEDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "o_LEDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "o_LEDR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "o_LEDR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "o_LEDR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "o_LEDR[6]",
+					"strict" : false
+				},
+				{
+					"name" : "o_LEDR[7]",
+					"strict" : false
+				},
+				{
+					"name" : "i_CLOCK",
+					"strict" : false
+				},
+				{
+					"name" : "i_RX",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "i_SEND",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[6]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
