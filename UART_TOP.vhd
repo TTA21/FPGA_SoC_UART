@@ -3,8 +3,7 @@
 ---Date			:	08/11/2020 , last update 01/26/2021
 ---Module		:	Simple UART module for serial communications.
 ---Description	:	This module transmits and recieves 8 bits [1 byte] at a time, allowing for simple communications with
----another external circuit.	Currently only recieves readable characters[ 32 to 128 ] and no commands [ <32 ], to change
----that read line 98.
+---another external circuit.
 ---	UPDATE 01/26/2021 : Removed redundant code and added a log function.
 ---Extra			:	Many thanks to TONI [ https://www.youtube.com/watch?v=fMmcSpgOtJ4 ] for his tutorial in UART comm-
 ----unications, i learned much from him. This code is almost completely his with some differences and explanations,
