@@ -7,7 +7,11 @@ port(
 
 	i_CLOCK	:	in std_logic;
 	i_RX		:	in std_logic;
-	o_DATA	:	out std_logic_vector(7 downto 0);
+	o_DATA	:	out std_logic_vector(7 downto 0)	;
+	i_log_ADDR	:	in std_logic_vector( 7 downto 0 )	;
+	
+	o_sig_CRRP_DATA	:	out std_logic := '0'			;	---Currupted data flag
+	
 	o_BUSY	:	out std_logic
 
 );
@@ -20,10 +24,14 @@ signal r_INDEX				:	integer range 0 to 9 := 0		;----Used to select bits from vec
 signal r_DATA_BUFFER		:	std_logic_vector(9 downto 0)	;----Data register, needs to be padded with [0] on the beggining and [1] at the end
 signal s_RECIEVING_FLAG	:	std_logic := '0'					;----Signal holding the current state [ 1 if recieving, 0 if not recieving ]
 	
-
+type t_MEM_UART is array ( 0 to 255 ) of std_logic_vector( 7 downto 0 );
+signal MEM_UART	:	t_MEM_UART;
+	
+signal r_COUNTER	:	std_logic_vector( 7 downto 0 ) := ( others => '0' );
+	
 	begin
 	
-	process( i_CLOCK ) begin
+	process( i_CLOCK , i_log_ADDR ) begin
 	
 		if( rising_edge(i_CLOCK) ) then
 		
@@ -93,11 +101,19 @@ signal s_RECIEVING_FLAG	:	std_logic := '0'					;----Signal holding the current s
 					
 						if( r_DATA_BUFFER(0) = '0' and r_DATA_BUFFER(9) = '1' ) then
 						
-							o_DATA <= r_DATA_BUFFER(8 downto 1);
+							if( not(r_COUNTER = "11111111") ) then
+								r_COUNTER	<= std_logic_vector( unsigned( r_COUNTER ) + 1 );
+							else
+								r_COUNTER	<= (others => '0');
+							end if;
+							
+							MEM_UART( to_integer( unsigned ( r_COUNTER ) ) )	<=	r_DATA_BUFFER(8 downto 1);
+							o_sig_CRRP_DATA	<=	'0';
 							
 						else 
 						
-							o_DATA <= (others => '0');
+							--o_DATA <= (others => '0');
+							o_sig_CRRP_DATA	<=	'1';
 							
 						end if;	--r_DATA_BUFFER(0) = '0' and r_DATA_BUFFER(9) = '1'
 						
@@ -118,7 +134,9 @@ signal s_RECIEVING_FLAG	:	std_logic := '0'					;----Signal holding the current s
 			------------------------------------------------------------
 		
 		end if; -- rising_edge(i_CLOCK)
-	
+		
+		o_DATA	<=	MEM_UART( to_integer( unsigned ( i_log_ADDR ) ) );
+		
 	end process;
 
 end ARCH_1;

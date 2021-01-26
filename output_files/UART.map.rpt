@@ -1,6 +1,6 @@
 Analysis & Synthesis report for UART
-Sun Nov 08 22:28:32 2020
-Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Tue Jan 26 05:39:20 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
 ---------------------
@@ -15,10 +15,11 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
   9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +46,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 08 22:28:32 2020       ;
-; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Tue Jan 26 05:39:20 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; UART                                        ;
 ; Top-level Entity Name              ; UART_TOP                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 124                                         ;
-;     Total combinational functions  ; 100                                         ;
-;     Dedicated logic registers      ; 81                                          ;
-; Total registers                    ; 81                                          ;
-; Total pins                         ; 20                                          ;
+; Total logic elements               ; 3,814                                       ;
+;     Total combinational functions  ; 1,757                                       ;
+;     Dedicated logic registers      ; 2,122                                       ;
+; Total registers                    ; 2122                                        ;
+; Total pins                         ; 31                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -155,7 +156,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
+; Number detected on machine ; 2           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -163,19 +164,19 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                     ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path              ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
-; UART_TOP.vhd                     ; yes             ; User VHDL File  ; C:/Users/USER/Documents/VHDL/UART_TOP.vhd ;         ;
-; TX.vhd                           ; yes             ; User VHDL File  ; C:/Users/USER/Documents/VHDL/TX.vhd       ;         ;
-; RX.vhd                           ; yes             ; User VHDL File  ; C:/Users/USER/Documents/VHDL/RX.vhd       ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                   ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
+; UART_TOP.vhd                     ; yes             ; User VHDL File  ; C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/UART_TOP.vhd ;         ;
+; TX.vhd                           ; yes             ; User VHDL File  ; C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/TX.vhd       ;         ;
+; RX.vhd                           ; yes             ; User VHDL File  ; C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/RX.vhd       ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------+
@@ -183,30 +184,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 124           ;
+; Estimated Total logic elements              ; 3,814         ;
 ;                                             ;               ;
-; Total combinational functions               ; 100           ;
+; Total combinational functions               ; 1757          ;
 ; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 54            ;
-;     -- 3 input functions                    ; 12            ;
-;     -- <=2 input functions                  ; 34            ;
+;     -- 4 input functions                    ; 1590          ;
+;     -- 3 input functions                    ; 116           ;
+;     -- <=2 input functions                  ; 51            ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 76            ;
-;     -- arithmetic mode                      ; 24            ;
+;     -- normal mode                          ; 1726          ;
+;     -- arithmetic mode                      ; 31            ;
 ;                                             ;               ;
-; Total registers                             ; 81            ;
-;     -- Dedicated logic registers            ; 81            ;
+; Total registers                             ; 2122          ;
+;     -- Dedicated logic registers            ; 2122          ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
-; I/O pins                                    ; 20            ;
+; I/O pins                                    ; 31            ;
 ;                                             ;               ;
 ; Embedded Multiplier 9-bit elements          ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; i_CLOCK~input ;
-; Maximum fan-out                             ; 73            ;
-; Total fan-out                               ; 600           ;
-; Average fan-out                             ; 2.71          ;
+; Maximum fan-out                             ; 2122          ;
+; Total fan-out                               ; 13217         ;
+; Average fan-out                             ; 3.35          ;
 +---------------------------------------------+---------------+
 
 
@@ -215,9 +216,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |UART_TOP                  ; 100 (4)             ; 81 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 20   ; 0            ; 0          ; |UART_TOP           ; UART_TOP    ; work         ;
-;    |RX:u_RX|               ; 61 (61)             ; 37 (37)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |UART_TOP|RX:u_RX   ; RX          ; work         ;
-;    |TX:u_TX|               ; 35 (35)             ; 27 (27)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |UART_TOP|TX:u_TX   ; TX          ; work         ;
+; |UART_TOP                  ; 1757 (10)           ; 2122 (9)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 31   ; 0            ; 0          ; |UART_TOP           ; UART_TOP    ; work         ;
+;    |RX:u_RX|               ; 1711 (1711)         ; 2085 (2085)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |UART_TOP|RX:u_RX   ; RX          ; work         ;
+;    |TX:u_TX|               ; 36 (36)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |UART_TOP|TX:u_TX   ; TX          ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -227,9 +228,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------+----------------------------------------+
 ; Register name                         ; Reason for Removal                     ;
 +---------------------------------------+----------------------------------------+
-; TX:u_TX|r_DATA_BUFFER[0]              ; Stuck at GND due to stuck port data_in ;
 ; TX:u_TX|r_DATA_BUFFER[9]              ; Stuck at VCC due to stuck port data_in ;
 ; TX:u_TX|s_TRANSMITING_FLAG            ; Merged with TX:u_TX|o_BUSY             ;
+; RX:u_RX|s_RECIEVING_FLAG              ; Merged with RX:u_RX|o_BUSY             ;
 ; Total Number of Removed Registers = 3 ;                                        ;
 +---------------------------------------+----------------------------------------+
 
@@ -239,14 +240,41 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 81    ;
+; Total registers                              ; 2122  ;
 ; Number of registers using Synchronous Clear  ; 26    ;
-; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Synchronous Load   ; 2     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 63    ;
+; Number of registers using Clock Enable       ; 2104  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; TX:u_TX|o_TX_LINE                       ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[8]                ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[2]                ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[1]                ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[0]                ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[3]                ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[5]                ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[6]                ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[4]                ; 1       ;
+; TX:u_TX|r_DATA_BUFFER[7]                ; 1       ;
+; r_TX_DATA[7]                            ; 1       ;
+; r_TX_DATA[1]                            ; 1       ;
+; r_TX_DATA[0]                            ; 1       ;
+; r_TX_DATA[2]                            ; 1       ;
+; r_TX_DATA[4]                            ; 1       ;
+; r_TX_DATA[5]                            ; 1       ;
+; r_TX_DATA[3]                            ; 1       ;
+; r_TX_DATA[6]                            ; 1       ;
+; Total number of inverted registers = 18 ;         ;
++-----------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -255,8 +283,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |UART_TOP|RX:u_RX|r_INDEX[3]     ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |UART_TOP|RX:u_RX|o_BUSY         ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |UART_TOP|RX:u_RX|r_PRESCALER[0] ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |UART_TOP|RX:u_RX|r_PRESCALER[6] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
 
 
@@ -265,23 +292,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 20                          ;
-; cycloneiii_ff         ; 81                          ;
-;     ENA               ; 37                          ;
+; boundary_port         ; 31                          ;
+; cycloneiii_ff         ; 2122                        ;
+;     ENA               ; 2078                        ;
 ;     ENA SCLR          ; 26                          ;
-;     SLD               ; 1                           ;
-;     plain             ; 17                          ;
-; cycloneiii_lcell_comb ; 100                         ;
-;     arith             ; 24                          ;
-;         2 data inputs ; 24                          ;
-;     normal            ; 76                          ;
-;         1 data inputs ; 2                           ;
+;     SLD               ; 2                           ;
+;     plain             ; 16                          ;
+; cycloneiii_lcell_comb ; 1759                        ;
+;     arith             ; 31                          ;
+;         2 data inputs ; 31                          ;
+;     normal            ; 1728                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 13                          ;
 ;         2 data inputs ; 8                           ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 54                          ;
+;         3 data inputs ; 116                         ;
+;         4 data inputs ; 1590                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.10                        ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 5.81                        ;
 +-----------------------+-----------------------------+
 
 
@@ -290,7 +318,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -299,34 +327,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sun Nov 08 22:28:06 2020
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Tue Jan 26 05:38:44 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART -c UART
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file uart_top.vhd
-    Info (12022): Found design unit 1: UART_TOP-ARCH_1 File: C:/Users/USER/Documents/VHDL/UART_TOP.vhd Line: 44
-    Info (12023): Found entity 1: UART_TOP File: C:/Users/USER/Documents/VHDL/UART_TOP.vhd Line: 29
+    Info (12022): Found design unit 1: UART_TOP-ARCH_1 File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/UART_TOP.vhd Line: 49
+    Info (12023): Found entity 1: UART_TOP File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/UART_TOP.vhd Line: 29
 Info (12021): Found 2 design units, including 1 entities, in source file tx.vhd
-    Info (12022): Found design unit 1: TX-ARCH_1 File: C:/Users/USER/Documents/VHDL/TX.vhd Line: 19
-    Info (12023): Found entity 1: TX File: C:/Users/USER/Documents/VHDL/TX.vhd Line: 5
+    Info (12022): Found design unit 1: TX-ARCH_1 File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/TX.vhd Line: 19
+    Info (12023): Found entity 1: TX File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/TX.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file rx.vhd
-    Info (12022): Found design unit 1: RX-ARCH_1 File: C:/Users/USER/Documents/VHDL/RX.vhd Line: 16
-    Info (12023): Found entity 1: RX File: C:/Users/USER/Documents/VHDL/RX.vhd Line: 5
+    Info (12022): Found design unit 1: RX-ARCH_1 File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/RX.vhd Line: 20
+    Info (12023): Found entity 1: RX File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/RX.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mem_uart.vhd
+    Info (12022): Found design unit 1: MEM_UART-ARCH_1 File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/MEM_UART.vhd Line: 19
+    Info (12023): Found entity 1: MEM_UART File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/MEM_UART.vhd Line: 5
 Info (12127): Elaborating entity "UART_TOP" for the top level hierarchy
-Info (12128): Elaborating entity "TX" for hierarchy "TX:u_TX" File: C:/Users/USER/Documents/VHDL/UART_TOP.vhd Line: 79
-Info (12128): Elaborating entity "RX" for hierarchy "RX:u_RX" File: C:/Users/USER/Documents/VHDL/UART_TOP.vhd Line: 90
+Warning (10541): VHDL Signal Declaration warning at UART_TOP.vhd(42): used implicit default value for signal "o_sig_TX_BUSY" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/UART_TOP.vhd Line: 42
+Info (12128): Elaborating entity "TX" for hierarchy "TX:u_TX" File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/UART_TOP.vhd Line: 85
+Info (12128): Elaborating entity "RX" for hierarchy "RX:u_RX" File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/UART_TOP.vhd Line: 96
+Warning (10492): VHDL Process Statement warning at RX.vhd(138): signal "MEM_UART" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/RX.vhd Line: 138
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "RX:u_RX|MEM_UART" is uninferred due to asynchronous read logic File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/RX.vhd Line: 28
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "o_sig_TX_BUSY" is stuck at GND File: C:/Users/User/Downloads/FPGA_SoC_UART-master/FPGA_SoC_UART-master/UART_TOP.vhd Line: 42
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 145 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 125 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4792 megabytes
-    Info: Processing ended: Sun Nov 08 22:28:32 2020
-    Info: Elapsed time: 00:00:26
+Info (21057): Implemented 3846 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 3815 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4790 megabytes
+    Info: Processing ended: Tue Jan 26 05:39:20 2021
+    Info: Elapsed time: 00:00:36
     Info: Total CPU time (on all processors): 00:00:54
 
 

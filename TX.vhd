@@ -10,7 +10,7 @@ port(
 	o_BUSY	:	out std_logic							;		----Signal to TOP to wait until transmission has finished
 	i_DATA	:	in std_logic_vector(7 downto 0)	;		----Data vector from TOP
 	
-	o_TX_LINE:	out std_logic									----Uart output to TOP
+	o_TX_LINE:	out std_logic	:='1'							----Uart output to TOP
 	
 
 );
@@ -20,7 +20,7 @@ architecture ARCH_1 of TX is
 
 	signal r_PRESCALER				:	integer range 0 to 5206 := 0	;----5206 = ( 50MHz[clock] / 9600[bitrate] )
 	signal r_INDEX						:	integer range 0 to 9 := 0		;----Used to select bits from vector		
-	signal r_DATA_BUFFER				:	std_logic_vector(9 downto 0)	;----Data register, needs to be padded with [0] on the beggining and [1] at the end
+	signal r_DATA_BUFFER				:	std_logic_vector(9 downto 0) := (others => '1')	;----Data register, needs to be padded with [0] on the beggining and [1] at the end
 	signal s_TRANSMITING_FLAG		:	std_logic := '0'					;----Signal holding the current state [ 1 if transmitting, 0 if not transmitting ]
 	
 	
